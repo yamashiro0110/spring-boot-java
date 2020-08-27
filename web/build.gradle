@@ -19,6 +19,8 @@ repositories {
 }
 
 dependencies {
+    implementation project(":domain")
+    implementation project(":infra")
     implementation 'org.springframework.boot:spring-boot-starter-data-rest'
     implementation 'org.springframework.boot:spring-boot-starter-hateoas'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
@@ -39,7 +41,7 @@ test {
 }
 
 bootJar {
-    enabled = false
+    enabled = true
 }
 
 jar {
