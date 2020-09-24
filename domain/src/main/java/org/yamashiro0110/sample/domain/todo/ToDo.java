@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 public class ToDo {
     @Id
     private Long id;
-    private LocalDateTime created;
-    private LocalDateTime updated;
+    private LocalDateTime created = LocalDateTime.now();
+    private LocalDateTime updated = LocalDateTime.now();
     private String note;
 }
