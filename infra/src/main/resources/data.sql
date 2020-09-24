@@ -1,0 +1,4 @@
+INSERT INTO TO_DO(id, created, updated, note) VALUES
+(1, CURRENT_DATE, CURRENT_DATE, 'hoge'),
+(2, CURRENT_DATE, CURRENT_DATE, 'fuga'),
+(3, CURRENT_DATE, CURRENT_DATE, 'piyo');
