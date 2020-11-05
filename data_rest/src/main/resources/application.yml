@@ -1,0 +1,9 @@
+spring.profiles:
+  include:
+    - data
+
+spring.data.rest:
+  base-path: /data-rest
+
+logging.level:
+  org.springframework: DEBUG

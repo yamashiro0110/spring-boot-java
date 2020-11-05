@@ -1,0 +1,7 @@
+spring.datasource:
+  url: jdbc:h2:mem:sample-spring-boot
+  username: sa
+  password:
+  driver-class-name: org.h2.Driver
+  schema: classpath:schema.sql
+  data: classpath:data.sql
