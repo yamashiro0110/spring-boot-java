@@ -26,7 +26,7 @@ public class FileWatchRouteBuilder extends EndpointRouteBuilder {
             .log("File event: ${header.CamelFileEventType} occurred on file ${header.CamelFileName} at ${header.CamelFileLastModified}")
             .process(exchange -> log.info("exchange {}", exchange.getIn().getBody()));
 
-        this.from(this.timer("create_file").period(3000).delay(3000))
+        this.from(this.timer("create_file").period(60000).delay(3000))
             .routeId("createFile-tmp")
             .process(exchange -> this.createFile())
             .log("File create");
