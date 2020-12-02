@@ -476,7 +476,7 @@ ij_formatter_on_tag = @formatter:on
 # ij_editorconfig_space_before_comma = false
 # ij_editorconfig_spaces_around_assignment_operators = true
 
-[{*.ant,*.fxml,*.jhm,*.jnlp,*.jrxml,*.jspx,*.pom,*.rng,*.tagx,*.tld,*.wsdl,*.xml,*.xsd,*.xsl,*.xslt,*.xul}]
+[{*.ant, *.fxml, *.jhm, *.jnlp, *.jrxml, *.jspx, *.pom, *.rng, *.tagx, *.tld, *.wsdl, *.xml, *.xsd, *.xsl, *.xslt, *.xul}]
 # ij_xml_align_attributes = true
 # ij_xml_align_text = false
 # ij_xml_attribute_wrap = normal
@@ -495,7 +495,7 @@ ij_formatter_on_tag = @formatter:on
 # ij_xml_text_wrap = normal
 # ij_xml_use_custom_settings = false
 
-[{*.bash,*.sh,*.zsh}]
+[{*.bash, *.sh, *.zsh}]
 # indent_size = 2
 # tab_width = 2
 # ij_shell_binary_ops_start_line = false
@@ -504,7 +504,7 @@ ij_formatter_on_tag = @formatter:on
 # ij_shell_redirect_followed_by_space = false
 # ij_shell_switch_cases_indented = false
 
-[{*.gant,*.gradle,*.groovy,*.gy}]
+[{*.gant, *.gradle, *.groovy, *.gy}]
 # ij_groovy_align_group_field_declarations = false
 # ij_groovy_align_multiline_array_initializer_expression = false
 # ij_groovy_align_multiline_assignment = false
@@ -683,7 +683,7 @@ ij_formatter_on_tag = @formatter:on
 # ij_groovy_while_on_new_line = false
 # ij_groovy_wrap_long_lines = false
 
-[{*.har,*.json}]
+[{*.har, *.json}]
 # indent_size = 2
 # ij_json_keep_blank_lines_in_code = 0
 # ij_json_keep_indents_on_empty_lines = false
@@ -696,7 +696,7 @@ ij_formatter_on_tag = @formatter:on
 # ij_json_spaces_within_brackets = false
 # ij_json_wrap_long_lines = false
 
-[{*.htm,*.html,*.sht,*.shtm,*.shtml}]
+[{*.htm, *.html, *.sht, *.shtm, *.shtml}]
 # ij_html_add_new_line_before_tags = body,div,p,form,h1,h2,h3
 # ij_html_align_attributes = true
 # ij_html_align_text = false
@@ -724,7 +724,7 @@ ij_formatter_on_tag = @formatter:on
 # ij_html_text_wrap = normal
 # ij_html_uniform_ident = false
 
-[{*.kt,*.kts}]
+[{*.kt, *.kts}]
 # ij_kotlin_align_in_columns_case_branch = false
 # ij_kotlin_align_multiline_binary_operation = false
 # ij_kotlin_align_multiline_extends_list = false
@@ -800,8 +800,8 @@ ij_formatter_on_tag = @formatter:on
 # ij_kotlin_wrap_expression_body_functions = 0
 # ij_kotlin_wrap_first_method_in_call_chain = false
 
-[{*.yaml,*.yml}]
-# indent_size = 2
+[{*.yaml, *.yml}]
+indent_size = 2
 # ij_yaml_keep_indents_on_empty_lines = false
 # ij_yaml_keep_line_breaks = true
 # ij_yaml_space_before_colon = true
