@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?useSSL=false
+    username: root
+    password: example
+    schema: schema.sql
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialization-mode: always
+
+logging:
+  level:
+    org.yamashiro: DEBUG
+    org.h2: DEBUG
+    org.springframework: DEBUG
