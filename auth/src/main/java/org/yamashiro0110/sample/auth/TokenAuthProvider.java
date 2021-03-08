@@ -14,9 +14,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.Objects;
 
+/**
+ * tokenで認証を行う
+ */
 @Service
-public class AuthProvider implements AuthenticationProvider {
-    private final Logger logger = LoggerFactory.getLogger(AuthProvider.class);
+public class TokenAuthProvider implements AuthenticationProvider {
+    private final Logger logger = LoggerFactory.getLogger(TokenAuthProvider.class);
 
     private User user() {
         return new User(
@@ -55,9 +58,11 @@ public class AuthProvider implements AuthenticationProvider {
 
     @Override
     public Authentication authenticate(final Authentication authentication) throws AuthenticationException {
+        // TokenAuthFilterから指定された引数
         final PreAuthenticatedAuthenticationToken token = (PreAuthenticatedAuthenticationToken) authentication;
         this.logger.info("start authentication token: {}", token);
 
+        // tokenの値からuserを取得
         final User user = this.user(String.valueOf(token.getPrincipal()));
         this.logger.info("get user {}", user);
 
@@ -65,6 +70,7 @@ public class AuthProvider implements AuthenticationProvider {
             throw new BadCredentialsException("無効なtokenが指定されました " + token.getPrincipal());
         }
 
+        // 認証の結果を返す
         return new BearerToken(user);
     }
 

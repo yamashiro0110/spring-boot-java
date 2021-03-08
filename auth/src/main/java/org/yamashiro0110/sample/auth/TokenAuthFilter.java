@@ -19,14 +19,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class AuthTokenFilter extends OncePerRequestFilter {
-    private final Logger logger = LoggerFactory.getLogger(AuthTokenFilter.class);
+/**
+ * Tokenで認証を行うFilter
+ * <p>
+ * 認証出来ないリクエストはエラーを発生させる。
+ */
+public class TokenAuthFilter extends OncePerRequestFilter {
+    private final Logger logger = LoggerFactory.getLogger(TokenAuthFilter.class);
     private final AuthenticationManager authenticationManager;
 
-    protected AuthTokenFilter(final AuthenticationManager authenticationManager) {
+    protected TokenAuthFilter(final AuthenticationManager authenticationManager) {
         this.authenticationManager = authenticationManager;
     }
 
+    /**
+     * Bearer Tokenを取得する
+     *
+     * @param request HTTPリクエスト
+     * @return Tokenの値
+     */
     private String bearerToken(final HttpServletRequest request) {
         final String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
         final String removeDirective = StringUtils.removeStartIgnoreCase(authHeader, "Bearer ");
@@ -45,8 +56,20 @@ public class AuthTokenFilter extends OncePerRequestFilter {
                 throw new PreAuthenticatedCredentialsNotFoundException("Bearerトークンが指定されていません");
             }
 
+            // authenticationManager.authenticateの引数を作成
             final PreAuthenticatedAuthenticationToken authenticationToken = new PreAuthenticatedAuthenticationToken(token, null);
+
+            /*
+             * tokenで認証を実行する。
+             *
+             * ApiAuthConfig.configure(HttpSecurity.authenticationProvider)で
+             * TokenAuthProviderを指定するとProviderManagerに追加される。
+             *
+             * よって、TokenAuthProvider.authenticateが実行される。
+             */
             final Authentication authentication = this.authenticationManager.authenticate(authenticationToken);
+
+            // 認証の結果をセットすると、認証済みになる
             SecurityContextHolder.getContext().setAuthentication(authentication);
             filterChain.doFilter(request, response);
         } catch (final AuthenticationException e) {
