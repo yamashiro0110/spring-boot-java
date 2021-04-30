@@ -1,4 +1,4 @@
-package org.yamashiro0110.sample.web;
+package org.yamashiro0110.sample.web.simple;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

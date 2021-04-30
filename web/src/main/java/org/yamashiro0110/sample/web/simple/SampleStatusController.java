@@ -1,4 +1,4 @@
-package org.yamashiro0110.sample.web;
+package org.yamashiro0110.sample.web.simple;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
