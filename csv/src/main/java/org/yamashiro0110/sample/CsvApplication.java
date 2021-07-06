@@ -25,7 +25,7 @@ public class CsvApplication {
             final CsvSchema csvSchema = csvMapper.schemaFor(CsvData.class)
                 .withHeader()
                 .withQuoteChar('"')
-                .withColumnSeparator('\t');
+                .withColumnSeparator(',');
 
             IntStream.rangeClosed(0, 3)
                 .mapToObj(CsvData::new)
